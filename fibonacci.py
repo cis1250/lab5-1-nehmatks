@@ -3,17 +3,17 @@
 # Fibonacci Sequence Exercise with functions
 # TODO: (Read detailed instructions in the Readme file)
 
-def get_input():
-    while true:
+
+def get_input(num_terms):
+    while True:
         try: 
             num_terms = int(input("Enter the number of fibonacci terms you'd like: "))
             if num_terms > 0: 
-                break
+                return(num_terms)
             else: 
                 print("Please enter a positive integer.")
-        else: 
+        except: 
             print("Please enter a valid input.")
-            
 
 def fibonacci(terms):
     a = 0
@@ -24,11 +24,16 @@ def fibonacci(terms):
         n_term = a + b
         a = b 
         b = n_term
+    return (sequence)
 
 def print_sequence(sequence):
     for item in sequence:
         print(item, end = " ")
+    print("")
 
-get_input()
-fibonacci(num_terms)
+num_terms = 0
+sequence = []
+
+terms = get_input(num_terms)
+sequence = fibonacci(terms)
 print_sequence(sequence)
